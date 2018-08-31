@@ -15,8 +15,13 @@ import './welcome.scss'
    * </template>
    *
    * <script>js</script>
+   *
+   *
+   * 由于template: '<div class="abc">{{message}}</div>'是在线编译，太慢，
+   * 所以这里直接人工编译，这样会更快些
    */
-  template: '<div class="abc">{{message}}</div>'
+  ...Vue.compile('<div class="abc">{{message}}</div>')
+  // template: '<div class="abc">{{message}}</div>'
 })
 export default class Welcome extends Vue{
   data() {
